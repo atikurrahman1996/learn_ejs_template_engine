@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+//for heroku deploy
+//const port = process.env.PORT;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
