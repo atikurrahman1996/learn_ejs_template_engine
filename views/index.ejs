@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/"> HOME </a></li>
-          <li><a href="/contact"> CONTACT </a></li>
-        </ul>
-      </nav>
-    </header>
+<%-include("layout/header") %>
 
-    <main>
-      <form action="/" method="post">
-        <input
-          type="text"
-          placeholder="programming Language"
-          name="pLanguage"
-        />
+<main>
+  <form action="/" method="post">
+    <input type="text" placeholder="programming Language" name="pLanguage" />
 
-        <button type="submit">Add</button>
-      </form>
-      <ul>
-        <li><%=plNames%></li>
-      </ul>
-    </main>
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+    <%if(plNames){%> <%for(let x=0; x< plNames.length; x++){%>
+    <li><%= plNames[x]%></li>
+    <%}%> <%} else {%>
+    <p>No data found</p>
 
-    <footer>
-      <p>All rights reserved by &copy; Atikur Rahman</p>
-    </footer>
-  </body>
-</html>
+    <% } %>
+  </ul>
+</main>
+
+<%-include("layout/footer") %>
